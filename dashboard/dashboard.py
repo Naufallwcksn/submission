@@ -96,7 +96,7 @@ min_date = all_df["order_purchase_timestamp"].min().date()
 max_date = all_df["order_purchase_timestamp"].max().date()
 
 with st.sidebar:
-    st.image("https://github.com/Naufallwcksn/submission/blob/main/logo.png")
+    st.image("https://raw.githubusercontent.com/Naufallwcksn/submission/main/logo.png")
     st.header("Filter Data")
 
     try:
