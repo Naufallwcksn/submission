@@ -1,5 +1,5 @@
-Library yang digunakan dalam proyek ini adalah sebagai berikut:
-- pandas
-- numpy
-- matplotlib
-- seaborn
+pandas
+numpy
+matplotlib
+seaborn
+streamlit
