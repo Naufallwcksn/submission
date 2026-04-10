@@ -99,12 +99,27 @@ with st.sidebar:
     st.image("https://github.com/dicodingacademy/assets/raw/main/logo.png")
     st.header("Filter Data")
 
-    start_date, end_date = st.date_input(
-        "Rentang Waktu",
-        value=[min_date, max_date],
-        min_value=min_date,
-        max_value=max_date
-    )
+    try:
+        date_input = st.date_input(
+            "Rentang Waktu",
+            value=[min_date, max_date],
+            min_value=min_date,
+            max_value=max_date
+        )
+
+        if len(date_input) != 2:
+            st.warning("⚠️ Silakan pilih tanggal awal dan tanggal akhir.")
+            st.stop()
+
+        start_date, end_date = date_input
+
+        if start_date > end_date:
+            st.error("❌ Tanggal awal tidak boleh lebih besar dari tanggal akhir.")
+            st.stop()
+
+    except Exception:
+        st.error("❌ Terjadi kesalahan pada input tanggal.")
+        st.stop()
 
     status_list = all_df['order_status'].dropna().unique()
     selected_status = st.multiselect(
